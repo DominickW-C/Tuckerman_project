@@ -1,0 +1,41 @@
+#mainTitle {
+    text-align: center;
+    color: black;
+}
+
+#optionBar {
+    background-color: #3b3c3d;
+    border-radius: 5px;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+li {
+    display: inline-block;
+
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+}
+
+li a:hover {
+    background-color: #161717;
+}
+
+#mainPageBowl {
+    max-width: 100%;
+    width: auto;
+}
