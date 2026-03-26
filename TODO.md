@@ -1,0 +1,1 @@
+- get the title and bar to overlap the image

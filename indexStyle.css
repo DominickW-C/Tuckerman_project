@@ -1,6 +1,10 @@
+/*
 #mainTitle {
     text-align: center;
     color: black;
+}
+
+#frontPage {
 }
 
 #optionBar {
@@ -38,4 +42,61 @@ li a:hover {
 #mainPageBowl {
     max-width: 100%;
     width: auto;
+}
+*/
+
+body {
+    background-color: #800020;
+}
+
+#frontPage{
+    display: grid;
+    grid-template-areas: "overlay";
+}
+
+#itemsOnImage {
+    grid-area: overlay;
+    margin-bottom: 50%;
+}
+
+#mainPageBowl {
+    grid-area: overlay;
+    max-width: 100%;
+    width: auto;
+    z-index: -5;
+}
+
+#mainTitle {
+    grid-area: overlay;
+    text-align: center; 
+    color: white;
+}
+
+#optionBar {
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+li {
+    display: inline-block;
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+}
+
+li a:hover {
+    background-color: rgba(255, 255, 255, .05); 
 }
