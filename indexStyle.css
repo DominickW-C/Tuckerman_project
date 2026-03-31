@@ -4,7 +4,13 @@
     color: white;
 }
 
-#frontPage {
+body {
+    background-color: #800020;
+}
+
+#frontPage{
+    display: grid;
+    grid-template-areas: "overlay";
 }
 
 #optionBar {
@@ -35,7 +41,6 @@ li a {
 }
 
 li a:hover {
-    background-color: rgba(255, 255, 255, .05); 
 }
 
 .dropdown {
@@ -44,12 +49,15 @@ li a:hover {
 }
 
 .dropdown-content {
-    margin-top: 10px;
+    padding-left: 0px;
+    margin-top: 5px;
     display: none;
     position: absolute;
-    /*background-color: rgba(0, 0, 0, 0.2);*/
+    background-color: rgba(255, 255, 255, .05);
     /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
     z-index: 1;
+    left: 50%;
+    transform: translate(-50%);
     border-radius: 5px;
 }
 
@@ -62,23 +70,15 @@ li a:hover {
     text-decoration: none;
     display: block;
     color: white;
+    border-radius: 0px;
 }
 
 .dropdown-content li a:hover {
-    background-color: #161717;
+    background-color: rgba(0, 0, 0, .05);
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
-
-body {
-    background-color: #800020;
-}
-
-#frontPage{
-    display: grid;
-    grid-template-areas: "overlay";
 }
 
 #itemsOnImage {
