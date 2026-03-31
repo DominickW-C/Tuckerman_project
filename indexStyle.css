@@ -1,13 +1,13 @@
 #mainTitle {
-    text-align: center;
-    color: black;
+    grid-area: overlay;
+    text-align: center; 
+    color: white;
 }
 
 #frontPage {
 }
 
 #optionBar {
-    background-color: #3b3c3d;
     border-radius: 5px;
     margin-left: 5%;
     margin-right: 5%;
@@ -35,7 +35,7 @@ li a {
 }
 
 li a:hover {
-    background-color: #161717;
+    background-color: rgba(255, 255, 255, .05); 
 }
 
 .dropdown {
@@ -44,11 +44,11 @@ li a:hover {
 }
 
 .dropdown-content {
+    margin-top: 10px;
     display: none;
     position: absolute;
-    background-color: #3b3c3d;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /*background-color: rgba(0, 0, 0, 0.2);*/
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
     z-index: 1;
     border-radius: 5px;
 }
@@ -72,11 +72,6 @@ li a:hover {
     display: block;
 }
 
-#mainPageBowl {
-    max-width: 100%;
-    width: auto;
-}
-
 body {
     background-color: #800020;
 }
@@ -92,17 +87,13 @@ body {
 }
 
 #mainPageBowl {
+    border-radius: 5px;
     grid-area: overlay;
     max-width: 100%;
     width: auto;
     z-index: -5;
 }
 
-#mainTitle {
-    grid-area: overlay;
-    text-align: center; 
-    color: white;
-}
 
 #optionBar {
     margin-left: 5%;
@@ -115,20 +106,3 @@ body {
 
 }
 
-li {
-    display: inline-block;
-}
-
-li a {
-    text-decoration: none;
-    color: white;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 5px;
-}
-
-li a:hover {
-    background-color: rgba(255, 255, 255, .05); 
-}

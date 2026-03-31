@@ -1,0 +1,101 @@
+#mainTitle {
+    text-align: center;
+    color: white;
+    font-family: bold "playfair display", Helvetica, Arial;
+    line-height: 1.6;
+    font-size: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #800020;
+}
+
+body { /*background of the page*/
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: white;
+    background-color: #800020;
+}
+
+header { /**/
+    background-color: #800020;
+    padding: 20px 0;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.history-section {
+    color: white;
+    margin-bottom: 40px;
+    background-color: #a52a2a;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.content-wrapper.reverse {
+    flex-direction: row-reverse;
+}
+
+.text-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.text-content h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.text-content p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.image-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.history-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #800020;
+    color: white;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    .content-wrapper.reverse {
+        flex-direction: column;
+    }
+    #mainTitle {
+        font-size: 36px;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
