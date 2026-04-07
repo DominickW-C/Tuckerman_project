@@ -1,7 +1,5 @@
 htmlElement = document.getElementById("jsDiv");
 
-htmlElement.innerHTML = '<p>test123</p>';
-
 let currentTemp = "Error: Not found";
 let currentPrecipitation = "Error: Not found";
 let currentWindSpeed = "Error: Not found";
@@ -28,15 +26,54 @@ async function fetchForecast () {
     }
 }
 
+let degreeSign = String.fromCharCode(176);
+
+function appendWindDir() {
+    switch (currentWindDirection) {
+        case "N":
+            currentWindDirection = "North";
+        case "NW":
+            currentWindDirection = "Northwest";
+        case "NE":
+            currentWindDirection = "Northeast";
+        case "E":
+            currentWindDirection = "East";
+        case "W":
+            currentWindDirection = "West";
+        case "S":
+            currentWindDirection = "South";
+        case "SW":
+            currentWindDirection = "Southwest";
+        case "SE":
+            currentWindDirection = "Southeast";
+    }
+}
+
 async function buildHTML () {
     await fetchForecast();
+    appendWindDir();
     htmlElement.innerHTML = `
-        <div id="temperature">
-        <p>${currentTemp}</p>
-        <p>${currentPrecipitation}</p>
-        <p>${currentWindSpeed}</p>
-        <p>${currentWindDirection}</p>
-        <p>${currentForecast}</p>
+        <div class="weatherReport">
+            <img id="weatherImg" src="../pictures/temperatureIcon.png">
+
+            <div class="weatherText">
+                <div class="firstHalf">
+                    <h2>Current Temperature:</h2>
+                    <p>${currentTemp}${degreeSign}F</p>
+
+                    <h2>Chance of Precipitation:</h2>
+                    <p>${currentPrecipitation}%</p>
+                </div>
+
+                <div class="secondHalf">
+                <h2>Wind:</h2>
+                <p>${currentWindSpeed}</p>
+                <p>${currentWindDirection}</p>
+
+                <h2>Description:</h2>
+                <p>${currentForecast}</p>
+                </div>
+            </div>
         </div>
     `
 }

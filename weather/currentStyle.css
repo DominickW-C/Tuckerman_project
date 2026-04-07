@@ -1,0 +1,43 @@
+body {
+    background-color: #800020;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    color: white;
+}
+
+.weatherReport {
+    border-radius: 5px;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #a52a2a;
+    display: flex; 
+}
+
+#weatherImg {
+    display: flex;
+    flex-shrink: 0;
+    max-width: 40%;
+    height: auto;
+}
+
+.weatherText {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    text-align: center;
+}
+
+.firstHalf {
+    display: flex;
+    flex-direction: column;
+}
+
+.secondHalf {
+    display: inline;
+    flex-direction: column;
+}
