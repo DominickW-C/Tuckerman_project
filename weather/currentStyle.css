@@ -6,12 +6,44 @@ h1 {
     font-size: 50px;
     text-align: center;
     color: white;
+    margin-bottom: 20px;
 }
+
+hr {
+    margin-bottom: 30px;
+    margin-left: 2%;
+    margin-right: 2%;
+    color: #a52a2a;
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+#backButton {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-bottom: 10px;
+    background-color: #a52a2a;
+    border-radius: 5px;
+}
+
+#backButton:hover {
+    background-color: #8c2323;
+}
+
 
 .weatherReport {
     border-radius: 5px;
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 30px;
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #a52a2a;
@@ -24,7 +56,7 @@ h1 {
     max-width: 40%;
     height: auto;
 }
-
+/*
 .weatherText {
     display: flex;
     flex-direction: row;
@@ -35,9 +67,72 @@ h1 {
 .firstHalf {
     display: flex;
     flex-direction: column;
+    margin-left: 20%;
 }
 
 .secondHalf {
     display: inline;
     flex-direction: column;
+    margin-left: 60%;
+}
+*/
+
+.weatherText {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Allows items to drop to the next line on small screens */
+    justify-content: space-around; /* Distributes space evenly without hardcoded margins */
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+.weatherText h2 {
+    font-size: 30px;
+}
+
+.weatherText p {
+    font-size: 20px;
+}
+
+#title {
+    margin-top: 0;
+    text-decoration: underline;
+}
+.firstHalf, .secondHalf {
+    display: flex;
+    flex-direction: column;
+    flex: 1;          /* Each takes up equal space */
+    min-width: 250px; /* Forces a wrap if the screen gets thinner than 250px */
+    margin: 10px 0;   /* Adds a little vertical breathing room when stacked */
+}
+
+.secondHalf {
+    margin-top: 102px; 
+}
+
+#gapLeft {
+    margin-bottom: 100px;
+}
+
+#gapRight {
+    margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 840px) {
+    #weatherImg {
+        display: none;
+    }
+
+    #title {
+        white-space: nowrap;
+        margin-left: 10px;
+    }
+
+    h2 {
+        white-space: nowrap;
+        margin-left: 10px;
+    }
+    
+
 }

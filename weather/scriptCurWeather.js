@@ -5,9 +5,10 @@ let currentPrecipitation = "Error: Not found";
 let currentWindSpeed = "Error: Not found";
 let currentWindDirection = "Error: Not found";
 let currentForecast = "Error: Not found";
+let currentTime = "Error: Not found";
 
 
-async function fetchForecast () {
+async function fetchForecast (day) {
     let response = await fetch("https://api.weather.gov/gridpoints/GYX/33,80/forecast")
     try {
         if (response.status !== 200) {
@@ -15,12 +16,20 @@ async function fetchForecast () {
             return;
         }
         let data = await response.json();
-        currentTemp = data["properties"]["periods"][0]["temperature"];
-        currentPrecipitation = data["properties"]["periods"][0]
+        if (day == 1) {
+            //makes sure we are pulling tomorrow and not tonight
+            let temp = data["properties"]["periods"][day]["name"];
+            if (temp === "Tonight") {
+                day = 2;
+            }
+        }
+        currentTemp = data["properties"]["periods"][day]["temperature"];
+        currentPrecipitation = data["properties"]["periods"][day]
                                    ["probabilityOfPrecipitation"]["value"];
-        currentWindSpeed = data["properties"]["periods"][0]["windSpeed"];
-        currentWindDirection = data["properties"]["periods"][0]["windDirection"];
-        currentForecast = data["properties"]["periods"][0]["shortForecast"];
+        currentWindSpeed = data["properties"]["periods"][day]["windSpeed"];
+        currentWindDirection = data["properties"]["periods"][day]["windDirection"];
+        currentForecast = data["properties"]["periods"][day]["shortForecast"];
+        currentTime = data["properties"]["periods"][day]["name"];
     } catch (err) {
         console.log(`error happened: ${err}`);
     }
@@ -49,26 +58,27 @@ function appendWindDir() {
     }
 }
 
-async function buildHTML () {
-    await fetchForecast();
+async function buildHTML (day) {
+    await fetchForecast(day);
     appendWindDir();
-    htmlElement.innerHTML = `
+    htmlElement.innerHTML += `
         <div class="weatherReport">
             <img id="weatherImg" src="../pictures/temperatureIcon.png">
 
             <div class="weatherText">
                 <div class="firstHalf">
+                    <h1 id="title">${currentTime}</h1>
                     <h2>Current Temperature:</h2>
-                    <p>${currentTemp}${degreeSign}F</p>
+                    <p id="gapLeft">${currentTemp}${degreeSign}F</p>
 
-                    <h2>Chance of Precipitation:</h2>
+                    <h2>% of Precipitation:</h2>
                     <p>${currentPrecipitation}%</p>
                 </div>
 
                 <div class="secondHalf">
                 <h2>Wind:</h2>
-                <p>${currentWindSpeed}</p>
-                <p>${currentWindDirection}</p>
+                <p >${currentWindSpeed}</p>
+                <p id="gapRight">${currentWindDirection}</p>
 
                 <h2>Description:</h2>
                 <p>${currentForecast}</p>
@@ -78,4 +88,5 @@ async function buildHTML () {
     `
 }
 
-buildHTML();
+buildHTML(0);
+buildHTML(1);
