@@ -46,6 +46,21 @@
             opacity: 0.95;
         }
 
+        .backDiv {
+            margin-top: 30px;
+        }
+        
+        #backButton {
+            color:white;
+            text-decoration: none;    
+            padding: 5px 10px 5px 10px;
+            border-radius: 5px;
+        }
+
+        #backButton:hover {
+            background-color: rgba(0, 0, 0, .3);
+        }
+
         .content {
             padding: 50px 50px 60px;
         }
@@ -133,7 +148,6 @@
             h1 {
                 font-size: 2.5em;
             }
-
             .subtitle {
                 font-size: 1.1em;
             }
@@ -173,7 +187,12 @@
     <div class="container">
         <div class="header">
             <h1>First Descents</h1>
-            <div class="subtitle">Tuckerman Ravine</div>
+            <div class="subtitle">
+                <p>Tuckerman Ravine</p>
+                <div class="backDiv">
+                    <a id="backButton" href="../index.html">Back to Home</a>
+                </div>
+            </div>
         </div>
 
         <div class="content">
