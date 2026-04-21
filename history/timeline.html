@@ -3,104 +3,500 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History</title>
-    <link rel="stylesheet" href="./timelineStyle.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <title>Tuckerman Ravine — History</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #f7f0f0;
+            --ink: #1a1010;
+            --ink-light: #3f2020;
+            --ink-muted: #7a5a5a;
+            --burg: #6b1a2a;
+            --burg-light: #9e3a4e;
+            --burg-pale: #e8c8cc;
+            --burg-dark: #4a0f1c;
+            --line: rgba(107, 26, 42, 0.3);
+            --panel-bg: rgba(255, 250, 250, 0.92);
+            --badge-size: 38px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--cream);
+            background-image:
+                radial-gradient(ellipse at 20% 10%, rgba(107,26,42,0.07) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 90%, rgba(74,15,28,0.05) 0%, transparent 60%),
+                url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+            color: var(--ink);
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 17px;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .page-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* ── Back button ── */
+        .backDiv {
+            padding: 24px 0 0;
+        }
+
+        #backButton {
+            font-family: 'Crimson Pro', serif;
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            text-decoration: none;
+            padding: 5px 12px;
+            border: 0.5px solid var(--line);
+            border-radius: 3px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        #backButton::before { content: '← '; }
+
+        #backButton:hover {
+            background-color: rgba(107, 26, 42, 0.1);
+            color: var(--burg);
+            border-color: var(--burg-light);
+        }
+
+        /* ── Page header ── */
+        .page-header {
+            text-align: center;
+            padding: 52px 0 16px;
+            position: relative;
+        }
+
+        .page-header::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--burg-light), transparent);
+            margin: 20px auto 0;
+        }
+
+        .page-header .kicker {
+            font-family: 'Crimson Pro', serif;
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--burg);
+            margin-bottom: 10px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(36px, 6vw, 58px);
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+        }
+
+        .page-header .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 18px;
+            color: var(--ink-muted);
+            margin-top: 10px;
+        }
+
+        /* ── Timeline wrapper ── */
+        .timeline {
+            list-style: none;
+            position: relative;
+            padding: 40px 0 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(180deg, transparent 0%, var(--burg-light) 5%, var(--burg-light) 95%, transparent 100%);
+        }
+
+        /* ── Timeline items ── */
+        .timeline li {
+            position: relative;
+            width: 44%;
+            margin-bottom: 36px;
+            animation: fadeUp 0.5s ease both;
+        }
+
+        .timeline li:nth-child(1)  { animation-delay: 0.05s; }
+        .timeline li:nth-child(2)  { animation-delay: 0.10s; }
+        .timeline li:nth-child(3)  { animation-delay: 0.15s; }
+        .timeline li:nth-child(4)  { animation-delay: 0.20s; }
+        .timeline li:nth-child(5)  { animation-delay: 0.25s; }
+        .timeline li:nth-child(6)  { animation-delay: 0.30s; }
+        .timeline li:nth-child(7)  { animation-delay: 0.35s; }
+        .timeline li:nth-child(8)  { animation-delay: 0.40s; }
+        .timeline li:nth-child(9)  { animation-delay: 0.45s; }
+        .timeline li:nth-child(10) { animation-delay: 0.50s; }
+        .timeline li:nth-child(11) { animation-delay: 0.55s; }
+        .timeline li:nth-child(12) { animation-delay: 0.60s; }
+        .timeline li:nth-child(13) { animation-delay: 0.65s; }
+        .timeline li:nth-child(14) { animation-delay: 0.70s; }
+        .timeline li:nth-child(15) { animation-delay: 0.75s; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Left side (default) */
+        .timeline li {
+            margin-left: 0;
+            text-align: right;
+        }
+
+        /* Right side */
+        .timeline li.right {
+            margin-left: 56%;
+            text-align: left;
+        }
+
+        /* ── Badge (center dot) ── */
+        .timeline-badge {
+            position: absolute;
+            width: var(--badge-size);
+            height: var(--badge-size);
+            border-radius: 50%;
+            top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--cream);
+            border: 1.5px solid var(--burg-light);
+            z-index: 2;
+        }
+
+        .timeline li .timeline-badge {
+            right: calc(-6% - var(--badge-size) / 2);
+        }
+
+        .timeline li.right .timeline-badge {
+            left: calc(-6% - var(--badge-size) / 2);
+        }
+
+        .badge-inner {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--burg-light);
+        }
+
+        .badge-inner.milestone {
+            background: var(--burg);
+            box-shadow: 0 0 0 3px rgba(107,26,42,0.15);
+        }
+
+        .badge-inner.danger {
+            background: var(--burg-dark);
+            box-shadow: 0 0 0 3px rgba(74,15,28,0.2);
+        }
+
+        /* ── Panel ── */
+        .timeline-panel {
+            background: var(--panel-bg);
+            border: 0.5px solid rgba(107,26,42,0.2);
+            border-radius: 2px;
+            padding: 16px 20px 18px;
+            position: relative;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .timeline-panel:hover {
+            border-color: var(--burg-light);
+            box-shadow: 0 2px 16px rgba(107,26,42,0.08);
+        }
+
+        /* Connector tick */
+        .timeline-panel::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            width: 20px;
+            height: 1px;
+            background: var(--burg-light);
+        }
+
+        .timeline li .timeline-panel::after {
+            right: -20px;
+        }
+
+        .timeline li.right .timeline-panel::after {
+            left: -20px;
+        }
+
+        /* ── Panel internals ── */
+        .timeline-date {
+            font-family: 'Crimson Pro', serif;
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--burg);
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .timeline-body p {
+            font-size: 14.5px;
+            color: var(--ink-light);
+            line-height: 1.65;
+        }
+
+        /* Era badge */
+        .era-tag {
+            display: inline-block;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 2px 7px;
+            border-radius: 2px;
+            margin-bottom: 6px;
+            background: var(--burg-pale);
+            color: var(--burg);
+            border: 0.5px solid rgba(107,26,42,0.25);
+        }
+
+        .era-tag.red {
+            background: rgba(74,15,28,0.08);
+            color: var(--burg-dark);
+            border-color: rgba(74,15,28,0.25);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 620px) {
+            .timeline::before { left: 18px; }
+
+            .timeline li,
+            .timeline li.right {
+                width: 100%;
+                margin-left: 0;
+                padding-left: 52px;
+                text-align: left;
+            }
+
+            .timeline li .timeline-badge,
+            .timeline li.right .timeline-badge {
+                left: 0;
+                right: auto;
+            }
+
+            .timeline li .timeline-panel::after,
+            .timeline li.right .timeline-panel::after {
+                left: -20px;
+                right: auto;
+            }
+        }
+    </style>
 </head>
-<div class="container">
-    <div class="page-header">
-        <h1 id="timeline">Timeline</h1>
+<body>
+<div class="page-wrapper">
+
+    <div class="backDiv">
+        <a id="backButton" href="../index.html">Back to Home</a>
     </div>
+
+    <div class="page-header">
+        <p class="kicker">Mount Washington, New Hampshire</p>
+        <h1>Tuckerman Ravine</h1>
+        <p class="subtitle">A history carved in ice and snow</p>
+    </div>
+
     <ul class="timeline">
+
         <li>
-          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago via Twitter</small></p>
+            <div class="timeline-badge"><div class="badge-inner"></div></div>
+            <div class="timeline-panel">
+                <p class="timeline-date">20,000+ years ago</p>
+                <h4 class="timeline-title">The Laurentide Ice Sheet</h4>
+                <div class="timeline-body">
+                    <p>The Laurentide Ice Sheet blanketed much of North America, including present-day New Hampshire, slowly carving out the landscape. As the glacier retreated, it left behind the steep headwalls and bowl-shaped terrain that define the ravine today.</p>
+                </div>
             </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div>
         </li>
-        <li class="timeline-inverted">
-          <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+
+        <li class="right">
+            <div class="timeline-badge"><div class="badge-inner milestone"></div></div>
+            <div class="timeline-panel">
+                <p class="timeline-date">1914</p>
+                <h4 class="timeline-title">First skier in the ravine</h4>
+                <div class="timeline-body">
+                    <p>John S. Apperson became the first person to ski in Tuckerman Ravine, pioneering what would become one of the most celebrated ski destinations in the Northeast.</p>
+                </div>
             </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-              <p>Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.</p>
-            </div>
-          </div>
         </li>
+
         <li>
-          <div class="timeline-badge danger"><i class="glyphicon glyphicon-credit-card"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+            <div class="timeline-badge"><div class="badge-inner"></div></div>
+            <div class="timeline-panel">
+                <p class="timeline-date">1920s – Early 1930s</p>
+                <h4 class="timeline-title">Early ski pioneers</h4>
+                <div class="timeline-body">
+                    <p>Members of the Appalachian Mountain Club and Dartmouth Outing Club begin regularly exploring and skiing the ravine, establishing the traditions of spring skiing that endure to this day.</p>
+                </div>
             </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div>
         </li>
-        <li class="timeline-inverted">
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+
+        <li class="right">
+            <div class="timeline-badge"><div class="badge-inner milestone"></div></div>
+            <div class="timeline-panel">
+                <p class="timeline-date">1931</p>
+                <h4 class="timeline-title">First headwall descent</h4>
+                <div class="timeline-body">
+                    <p>John Charleton and Charley Proctor completed the first descent of the 50-degree headwall — a landmark moment in American skiing history.</p>
+                </div>
             </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div>
         </li>
+
         <li>
-          <div class="timeline-badge info"><i class="glyphicon glyphicon-floppy-disk"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+            <div class="timeline-badge"><div class="badge-inner milestone"></div></div>
+            <div class="timeline-panel">
+                <p class="timeline-date">1931 — one week later</p>
+                <h4 class="timeline-title">Summit-to-headwall descent</h4>
+                <div class="timeline-body">
+                    <p>Harvard skiers Robert Livermore, Brad Trafford, and Robert Balch completed the first summit-to-headwall descent, later going on to help found the Hochgebirge Ski Club.</p>
+                </div>
             </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-              <hr>
-              <div class="btn-group">
-                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                  <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </li>
+
+        <li class="right">
+            <div class="timeline-badge"><div class="badge-inner milestone"></div></div>
+            <div class="timeline-panel">
+                <span class="era-tag">First inferno</span>
+                <p class="timeline-date">April 16, 1933</p>
+                <h4 class="timeline-title">The American Inferno race</h4>
+                <div class="timeline-body">
+                    <p>The first American Inferno ski race was held, starting at the summit of Mount Washington and ending at Pinkham Notch. Organized by the Ski Club Hochgebirge, Hollis Phillips won with a time of 14:41.3.</p>
+                </div>
+            </div>
+        </li>
+
         <li>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+            <div class="timeline-badge"><div class="badge-inner"></div></div>
+            <div class="timeline-panel">
+                <p class="timeline-date">1936</p>
+                <h4 class="timeline-title">First woman on the headwall</h4>
+                <div class="timeline-body">
+                    <p>Mary Bird is believed to be the first woman to ski the headwall, a milestone in the mountain's inclusive skiing history.</p>
+                </div>
             </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div>
         </li>
-        <li class="timeline-inverted">
-          <div class="timeline-badge success"><i class="glyphicon glyphicon-thumbs-up"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+
+        <li class="right">
+            <div class="timeline-badge"><div class="badge-inner milestone"></div></div>
+            <div class="timeline-panel">
+                <span class="era-tag">Record unbroken</span>
+                <p class="timeline-date">1939</p>
+                <h4 class="timeline-title">Toni Matt's legendary run</h4>
+                <div class="timeline-body">
+                    <p>During the 1939 Inferno, Toni Matt set a record that stands to this day — descending from the summit of Mount Washington to Pinkham Notch in 6 minutes 29.2 seconds, reaching speeds up to 90 mph as he straightlined down the headwall.</p>
+                </div>
             </div>
-            <div class="timeline-body">
-              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-            </div>
-          </div>
         </li>
+
+        <li>
+            <div class="timeline-badge"><div class="badge-inner"></div></div>
+            <div class="timeline-panel">
+                <p class="timeline-date">1939</p>
+                <h4 class="timeline-title">Mount Washington Volunteer Ski Patrol founded</h4>
+                <div class="timeline-body">
+                    <p>Henry "Swampy" Paris founded the Mount Washington Volunteer Ski Patrol (MWVSP) as the "Mount Washington Safety Patrol," supporting the U.S. Forest Service with rescue and first aid for spring skiers out of Hermit Lake.</p>
+                </div>
+            </div>
+        </li>
+
+        <li class="right">
+            <div class="timeline-badge"><div class="badge-inner milestone"></div></div>
+            <div class="timeline-panel">
+                <p class="timeline-date">1940s</p>
+                <h4 class="timeline-title">Brooks Dodge pioneers the lines</h4>
+                <div class="timeline-body">
+                    <p>Brooks Dodge pioneers many iconic routes — Dodge's Drop, Sluice, Icefall, and Duchess — helping define the vocabulary of early extreme skiing in the ravine.</p>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="timeline-badge"><div class="badge-inner danger"></div></div>
+            <div class="timeline-panel">
+                <span class="era-tag red">Loss</span>
+                <p class="timeline-date">1951</p>
+                <h4 class="timeline-title">Ravine shelter burns</h4>
+                <div class="timeline-body">
+                    <p>The original Tuckerman Ravine Shelter burned down due to a worker's carelessness, a significant loss for the mountain community.</p>
+                </div>
+            </div>
+        </li>
+
+        <li class="right">
+            <div class="timeline-badge"><div class="badge-inner"></div></div>
+            <div class="timeline-panel">
+                <p class="timeline-date">1950s & 60s</p>
+                <h4 class="timeline-title">Metal skis and growing popularity</h4>
+                <div class="timeline-body">
+                    <p>Metal skis transform the sport and spring skiing at Tuckerman becomes a major Northeast tradition. Avalanches and icefalls posed serious dangers to growing crowds; the Forest Service ultimately shifted focus toward visitor education and safer backcountry decision-making.</p>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="timeline-badge"><div class="badge-inner"></div></div>
+            <div class="timeline-panel">
+                <p class="timeline-date">1980s</p>
+                <h4 class="timeline-title">Preservation and telemark rise</h4>
+                <div class="timeline-body">
+                    <p>Proposals to mechanize access via snowcats, helicopters, and the Cog Railway were defeated by environmentalists and the Forest Service, preserving the hike-in tradition. Telemark skiing gained popularity for its efficiency on the mountain's terrain.</p>
+                </div>
+            </div>
+        </li>
+
+        <li class="right">
+            <div class="timeline-badge"><div class="badge-inner"></div></div>
+            <div class="timeline-panel">
+                <p class="timeline-date">1990s</p>
+                <h4 class="timeline-title">Snowboarding and winter mountaineering</h4>
+                <div class="timeline-body">
+                    <p>Snowboarding brought a younger crowd and grew quickly in the ravine. Winter mountaineering also increased, with year-round exploration expanding the mountain's use — though Mount Washington's extreme weather continued to pose serious risks.</p>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="timeline-badge"><div class="badge-inner milestone"></div></div>
+            <div class="timeline-panel">
+                <span class="era-tag">Present day</span>
+                <p class="timeline-date">2000s – Today</p>
+                <h4 class="timeline-title">A bucket-list destination</h4>
+                <div class="timeline-body">
+                    <p>Tuckerman Ravine has become a bucket-list destination for skiers, snowboarders, and spectators alike. Backcountry skiing's growing popularity has expanded visitation beyond the traditional spring season, reinforcing the enduring importance of education, preparation, and responsible decision-making in a high-risk environment.</p>
+                </div>
+            </div>
+        </li>
+
     </ul>
 </div>
+</body>
+</html>
