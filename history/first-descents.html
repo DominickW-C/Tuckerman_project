@@ -163,7 +163,24 @@
             .timeline-item::before {
                 left: -34px;
             }
+            
         }
+        .timeline-image {
+            display: block;
+            width: 100%;
+         /* crops nicely instead of stretching */
+            margin: 20px auto 0;
+            border-radius: 6px;
+            border: 2px solid black;
+        }
+        .timeline-image-small {
+            display: block;
+            max-width: 60%;   /* smaller than full width */
+            height: auto;
+            margin: 20px auto 0;
+            border-radius: 6px;
+        }
+
     </style>
 </head>
 <body>
@@ -217,11 +234,20 @@
                 <div class="timeline-item">
                     <div class="year">1940s</div>
                     <div class="description">
+                        <img class="timeline-image" src="../pictures/BrooksDodge-Fatalities.jpg">
                         <strong>Brooks Dodge</strong>—son of Joe Dodge, who played a key role in expanding the Appalachian Mountain Club hut system in the White Mountain National Forest—revolutionized skiing in Tuckerman Ravine by pioneering many of its most challenging and iconic runs, including <span class="highlight">Dodge's Drop, the Duchess, the Sluice, and the Icefall</span>. Starting at just twelve years old, Dodge's desire to descend nearly every skiable line in the ravine laid the foundation for what would later be recognized as extreme skiing, cementing Tuckerman Ravine's reputation as a proving ground for skill, risk-taking, and innovation in New England ski culture.
+                   
                     </div>
                 </div>
             </div>
         </div>
+        <div class="timeline-item">
+            <div class="year">Additional Pictures</div>
+            <div class="description">
+                <img class="timeline-image-small" src="../pictures/FatalitiesPic2.jpg">
+            </div>
+        </div>
+
 
         <div class="footer">
             Tuckerman Ravine - A Legacy of Extreme Skiing Excellence
