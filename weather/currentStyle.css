@@ -119,7 +119,7 @@ a {
     margin-bottom: 40px;
 }
 
-@media only screen and (max-width: 840px) {
+@media only screen and (max-width: 1000px) {
     #weatherImg {
         display: none;
     }
