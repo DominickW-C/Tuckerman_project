@@ -3,17 +3,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fatalities</title>
+    <title>Fatalities in Tuckerman Ravine</title>
     <style>
+        :root {
+            --primary-color: #800020;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --bg-page: #fdfdfd;
+            --bg-card: #ffffff;
+            --border-light: #eeeeee;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+        }
+        .backDiv {
+            margin-top: 30px;
+        }
+        
+        #backButton {
+            color:white;
+            text-decoration: none;    
+            padding: 5px 10px 5px 10px;
+            border-radius: 10px;
+            background-color: #6B0017;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        #backButton:hover {
+            background-color: rgba(0, 0, 0, .3);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 1rem 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .category-card {
+            background-color: var(--bg-card);
+            border-top: 5px solid var(--primary-color);
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+        }
+
+        .category-card h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        .subtitle {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        li:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .victim-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .victim-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .victim-date {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 600;
+            
+        }
+
+        .incident-desc {
+            margin: 0;
+            color: #444;
+            font-size: 1.1rem;  
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .victim-header {
+                flex-direction: column;
+            }
+            .victim-date {
+                margin-top: 0.25rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Fatalities</h1>
-    <p>Content goes here</p>
+
+    <header>
+        <h1>Fatalities in Tuckerman Ravine</h1>
+        <p>The fatalities in Tuckerman Ravine highlight just how risky a dynamic alpine environment can be. Anytime you venture into the bowl, there's a crossover into ski mountaineering because of the technicality of the terrain. Even though it’s a bucket-list destination for skiers, snowboarders, climbers, and hikers, the steep terrain and unpredictable weather have resulted in 39 recorded deaths, not all of them ski-related. The following list highlights the range of incidents that have occurred in the ravine over time.</p>
+        <div class="backDiv">
+            <a id="backButton" href="../index.html">Back to Home</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="category-card">
+            <h2>Avalanches</h2>
+            <ul>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Philip Longnecker (25) and Jacques Parysko (23)</span>
+                        <span class="victim-date">January 1954</span>
+                    </div>
+                    <p class="incident-desc">Buried when an avalanche struck their snow shelter beneath the headwall; Longnecker was buried, and Parysko died from hypothermia.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Aaron Leve (28)</span>
+                        <span class="victim-date">February 19, 1956</span>
+                    </div>
+                    <p class="incident-desc">Hiker buried by an avalanche in Tuckerman Ravine.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Scott Sandberg (32) and Thomas Burke (46)</span>
+                        <span class="victim-date">November 2002</span>
+                    </div>
+                    <p class="incident-desc">Climbers were killed in a multi-party avalanche incident involving seven individuals.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Nicholas Benedix (32)</span>
+                        <span class="victim-date">April 2019</span>
+                    </div>
+                    <p class="incident-desc">Killed in an avalanche in the Ravine of Raymond Cataract.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="category-card">
+            <h2>Long Sliding Falls</h2>
+            <span class="subtitle">Leading cause of death in the ravine</span>
+            <ul>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">John Neal (Springfield, MA)</span>
+                        <span class="victim-date">April 7, 1943</span>
+                    </div>
+                    <p class="incident-desc">Fatal fall while skiing the Little Headwall.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Phyllis Wilbur (16) (Kingsfield, ME)</span>
+                        <span class="victim-date">May 31, 1948 (died June 3)</span>
+                    </div>
+                    <p class="incident-desc">Skiing accident in Tuckerman Ravine.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Karl Brushaber (37) (Ann Arbor, MI)</span>
+                        <span class="victim-date">December 24, 1974</span>
+                    </div>
+                    <p class="incident-desc">Skull fracture from a fall.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Scott Whinnery (25) (Speigeltown, NY)</span>
+                        <span class="victim-date">May 8, 1976</span>
+                    </div>
+                    <p class="incident-desc">Fall on Hillman’s Highway.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Kathy Hamann (25) (Sandy Hook, CT)</span>
+                        <span class="victim-date">March 28, 1982</span>
+                    </div>
+                    <p class="incident-desc">Fall while climbing in Connection Gully.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Christopher Schneider (31) (Pittsfield, VT)</span>
+                        <span class="victim-date">March 28, 1995</span>
+                    </div>
+                    <p class="incident-desc">Skiing fall.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Hillary Manion (22) (Ottawa, ON)</span>
+                        <span class="victim-date">June 3, 2001</span>
+                    </div>
+                    <p class="incident-desc">Fall onto rocks while skiing The Chute.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Patrick Scott Powers (46) (Mansfield, MA)</span>
+                        <span class="victim-date">January 9, 2012</span>
+                    </div>
+                    <p class="incident-desc">800-foot fall down the headwall.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Madison Saltsburg (20)</span>
+                        <span class="victim-date">March 9, 2024</span>
+                    </div>
+                    <p class="incident-desc">600-foot fall down the Lip.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="category-card">
+            <h2>Falling Ice</h2>
+            <ul>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Grace M. Sturgess (24) (Williamstown, MA)</span>
+                        <span class="victim-date">May 23, 1936</span>
+                    </div>
+                    <p class="incident-desc">Killed by falling ice.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">William Brigham (28) (Montreal, QC)</span>
+                        <span class="victim-date">May 17, 1958</span>
+                    </div>
+                    <p class="incident-desc">Killed by an icefall.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Sarah Nicholson (25) (Portland, ME)</span>
+                        <span class="victim-date">June 4, 1994</span>
+                    </div>
+                    <p class="incident-desc">Struck by falling ice.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="category-card">
+            <h2>Crevasse Falls</h2>
+            <ul>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Edwin P. McIntire Jr. (19) (Short Hills, NH)</span>
+                        <span class="victim-date">June 9, 1940</span>
+                    </div>
+                    <p class="incident-desc">Fell into a crevasse.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Christopher Coyne (21) (Greenwich, CT)</span>
+                        <span class="victim-date">May 17, 1972</span>
+                    </div>
+                    <p class="incident-desc">Fell into a crevasse.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Cheryl Weingarten (21) (Hewlett, NY)</span>
+                        <span class="victim-date">May 1, 1994</span>
+                    </div>
+                    <p class="incident-desc">Fell into a snow crevasse on the headwall.</p>
+                </li>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Norman Priebatsch (67) (Boston, MA)</span>
+                        <span class="victim-date">April 1, 2012</span>
+                    </div>
+                    <p class="incident-desc">Fell into a crevasse; body recovered in May.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="category-card">
+            <h2>Other</h2>
+            <ul>
+                <li>
+                    <div class="victim-header">
+                        <span class="victim-name">Sewall E. Faunce (15) (Dorchester, MA)</span>
+                        <span class="victim-date">July 24, 1886</span>
+                    </div>
+                    <p class="incident-desc">Killed after falling from a snow arch.</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+
 </body>
 </html>
