@@ -1,0 +1,36 @@
+body {
+    background-color: rgb(245, 245, 245);
+}
+
+.header {
+    background-color: #800020;
+    text-align: center;
+}
+
+#backButton {
+    text-decortation: none;
+}
+
+.txtContainerLeft {
+    width: 600px;
+    margin-left: 60%;
+    background-color: #800020;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px;
+}
+
+.txtContainerRight {
+    width: 600px;
+    background-color: #800020;
+    margin-left: 5%;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px;
+}
+
+.txtContainerLeft p {
+    color: white;
+}
+
+.txtContainerRight p {
+    color: white;
+}
